@@ -25,6 +25,19 @@ namespace FindLab
         public MainPage()
         {
             this.InitializeComponent();
+            this.ViewModel = new LabViewModel();
+        }
+
+        public LabViewModel ViewModel { get; set; }
+
+        private void NavView_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NavView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+
         }
     }
 }

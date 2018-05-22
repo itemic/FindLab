@@ -6,8 +6,59 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.Background>
+        <AcrylicBrush TintOpacity="0.4" BackgroundSource="HostBackdrop"/>
+    </Page.Background>
+    <Pivot x:Name="rootPivot" Title="UoA LabFind">
+        <PivotItem Header="303 Labs">
+            <GridView ItemsSource="{x:Bind ViewModel.Labs}"
+        HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Lab">
+                        <StackPanel Orientation="Horizontal" Padding="18" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Vertical">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                    <TextBlock Grid.Column="0" Text="{x:Bind capitalizedRoomName}" FontWeight="BOLD" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                                    <TextBlock Grid.Column="1" Text="{x:Bind availabilityString}" FontWeight="SemiLight" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                                </Grid>
+                                <ProgressBar Value="{x:Bind availability}" Maximum="{x:Bind total_machines}" Height="24" Width="450" FlowDirection="RightToLeft"/>
+                            </StackPanel>
+                        </StackPanel>
 
-    </Grid>
+
+
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid Orientation="Horizontal" HorizontalAlignment="Stretch"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+            </GridView>
+        </PivotItem>
+        <PivotItem Header="Pivot Item 2">
+            <!--Pivot content goes here-->
+            <TextBlock Text="Content of pivot item 2."/>
+        </PivotItem>
+        <PivotItem Header="Pivot Item 3">
+            <!--Pivot content goes here-->
+            <TextBlock Text="Content of pivot item 3."/>
+        </PivotItem>
+    </Pivot>
+    
+
+
+
 </Page>
+
+
+
+
+
+
